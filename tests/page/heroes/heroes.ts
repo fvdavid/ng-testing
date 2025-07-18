@@ -1,11 +1,11 @@
 import { Page } from "@playwright/test";
-import { FilterInputElement } from "../../shared/filter-input.element";
+import { SearchInputElement } from "../../shared/search-input.element";
 
 export class HeroesPage {
-  readonly filterInput: FilterInputElement;
+  readonly searchInput: SearchInputElement;
 
   constructor(private readonly page: Page) {
-    this.filterInput = new FilterInputElement(page);
+    this.searchInput = new SearchInputElement(page);
   }
 
   async goto() {

@@ -1,6 +1,6 @@
 import type { Locator, Page } from '@playwright/test';
 
-export class FilterInputElement {
+export class SearchInputElement {
   private readonly container: Locator;
   readonly input: Locator;
   readonly resetButton: Locator;

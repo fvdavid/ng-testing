@@ -5,19 +5,35 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-search-input',
   imports: [FormsModule],
-  templateUrl: './search-input.html',
+  template: ` <input
+      type="text"
+      placeholder="Filter..."
+      class="filter-input"
+      data-testid="filter-input"
+      [(ngModel)]="filterValue"
+      (ngModelChange)="emitSearchTerm()"
+    />
+
+    @if (filterText()) {
+    <button
+      class="filter-reset"
+      data-testid="filter-input-reset"
+      (click)="resetFilter()"
+    >
+      ✕
+    </button>
+    }`,
   styleUrl: './search-input.scss',
   host: {
-    'data-testid': 'filter-input-component'
-  }
+    'data-testid': 'filter-input-component',
+  },
 })
 export class SearchInput {
-
   filterText = signal(true);
 
   filterValue!: string;
 
-  resetFilter() { }
+  resetFilter() {}
 
-  emitSearchTerm() { }
+  emitSearchTerm() {}
 }
